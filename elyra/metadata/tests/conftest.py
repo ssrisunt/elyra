@@ -23,7 +23,8 @@ from notebook.utils import url_path_join
 from tornado.escape import url_escape
 from elyra.metadata.metadata import MetadataManager, FileMetadataStore, SchemaManager
 from elyra.metadata.runtime import Runtime
-from .test_utils import valid_metadata_json, invalid_metadata_json, another_metadata_json, create_json_file
+from .test_utils import valid_metadata_json, invalid_metadata_json, invalid_range_metadata_json, \
+    another_metadata_json, create_json_file
 
 
 # BEGIN - Remove once transition to jupyter_server occurs
@@ -116,6 +117,7 @@ def setup_runtimes(environ, metadata_runtimes_dir):
     create_json_file(metadata_runtimes_dir, 'valid.json', valid_metadata_json)
     create_json_file(metadata_runtimes_dir, 'another.json', another_metadata_json)
     create_json_file(metadata_runtimes_dir, 'invalid.json', invalid_metadata_json)
+    create_json_file(metadata_runtimes_dir, 'invalid_range.json', invalid_range_metadata_json)
 
 
 @pytest.fixture

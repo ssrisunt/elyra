@@ -70,7 +70,7 @@ def test_manager_list_summary(runtimes_manager):
     metadata_summary_list = runtimes_manager.get_all_metadata_summary(include_invalid=False)
     assert len(metadata_summary_list) == 2
     metadata_summary_list = runtimes_manager.get_all_metadata_summary(include_invalid=True)
-    assert len(metadata_summary_list) == 3
+    assert len(metadata_summary_list) == 4
 
 
 def test_manager_list_all(runtimes_manager):
@@ -172,6 +172,12 @@ def test_manager_read_invalid_by_name(runtimes_manager):
         runtimes_manager.get(metadata_name)
 
 
+def test_manager_read_invalid_range_by_name(runtimes_manager):
+    metadata_name = 'invalid_range'
+    with pytest.raises(ValidationError):
+        runtimes_manager.get(metadata_name)
+
+
 def test_manager_read_missing_by_name(runtimes_manager):
     metadata_name = 'missing'
     with pytest.raises(KeyError):
@@ -183,7 +189,7 @@ def test_filestore_list_summary(filestore):
     metadata_summary_list = filestore.get_all_metadata_summary(include_invalid=False)
     assert len(metadata_summary_list) == 2
     metadata_summary_list = filestore.get_all_metadata_summary(include_invalid=True)
-    assert len(metadata_summary_list) == 3
+    assert len(metadata_summary_list) == 4
 
 
 def test_filestore_list_all(filestore):

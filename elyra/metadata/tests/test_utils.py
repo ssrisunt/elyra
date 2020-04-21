@@ -46,6 +46,15 @@ invalid_metadata_json = {
     }
 }
 
+invalid_range_metadata_json = {
+    'schema_name': 'test',
+    'display_name': 'invalid range',
+    'metadata': {
+        'api_endpoint': 'http://localhost:31823/v1/models?version=2017-02-13',
+        'foo': 42
+    }
+}
+
 
 def create_json_file(location, file_name, content):
     try:
